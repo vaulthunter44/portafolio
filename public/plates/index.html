@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..800,0,0;1,9..144,300..800,0,0&family=Inter:wght@400;500&display=swap">
 <style>
 /* Layout: the whole site is one big plate — paper, grain, hairline construction lines, Nº labels.
-   Hero (statement + tall plate) → marquee → hover index → horizontal timeline → El3mentslab's four elements → certifications → languages → contact. */
+   Hero (statement + tall plate) → horizontal "what I do" → El3mentslab's four elements → certifications → languages → contact. */
 :root {
   --page: #f0ebe2;
   --plate: #ece6da;
@@ -86,42 +86,11 @@ h1 em { font-style: italic; font-weight: 300; }
 .tall img { width: 100%; height: 100%; object-fit: cover; display: block; animation: settle 2s .15s cubic-bezier(.2,.7,.2,1) both; }
 .tall .t { position: absolute; font-family: var(--mono); color: #1d1b18; font-weight: 500; font-size: max(10px, 2.4cqw); }
 .tall .no { left: 6cqw; top: 6cqw; }
-.vcap { position: absolute; right: -32px; bottom: 0; writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--serif); font-style: italic; font-size: 14px; white-space: nowrap; }
-.corner { position: absolute; display: grid; gap: 8px; }
-.corner.bl { left: 0; bottom: 28px; }
-.corner.br { right: 0; bottom: 28px; text-align: right; }
-.corner.tr { right: 0; top: 96px; text-align: right; }
-.scroll { display: inline-flex; gap: 10px; align-items: center; font-family: var(--serif); font-style: italic; color: var(--soft); text-decoration: none; }
-.scroll::after { content: ""; width: 1px; height: 26px; background: currentColor; transform-origin: top; animation: drip 2.4s 1.6s ease-in-out infinite; }
-
-/* ---------- Marquee ---------- */
-.marquee { border-block: 1px solid var(--ink); overflow: hidden; padding-block: 18px; }
-.marquee .run { display: flex; width: max-content; animation: slide 40s linear infinite; }
-.marquee span { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(32px, 5vw, 64px); line-height: 1; display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; white-space: nowrap; }
-.shape { width: .55em; height: .55em; flex: none; display: inline-block; }
-.s1 { background: var(--sun); border-radius: 50%; }
-.s2 { background: var(--navy); border-radius: 100% 100% 0 0; height: .3em; }
-.s3 { background: var(--ink); }
-.s4 { width: 0; height: 0; border-left: .3em solid transparent; border-right: .3em solid transparent; border-bottom: .52em solid var(--red); }
-.marquee:hover .run { animation-play-state: paused; }
-
 /* ---------- Section heads ---------- */
 section.block { padding-block: clamp(80px, 13vh, 150px); }
 .head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 24px; margin-bottom: 48px; }
 h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(44px, 6.5vw, 96px); line-height: .92; letter-spacing: -.035em; margin: 14px 0 0; text-wrap: balance; }
 h2 em { font-style: italic; font-weight: 300; }
-
-/* ---------- Index with hover preview ---------- */
-.index { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
-.index a { display: grid; grid-template-columns: 70px minmax(0, 1fr) auto 90px; align-items: baseline; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--rule); text-decoration: none; transition: padding .4s cubic-bezier(.2,.7,.2,1), color .3s; }
-.index .n { font-family: var(--mono); font-size: 12px; color: var(--soft); }
-.index .ti { font-family: var(--serif); font-size: clamp(26px, 3.4vw, 46px); font-weight: 500; letter-spacing: -.02em; line-height: 1.05; }
-.index .ti em { font-weight: 300; font-style: italic; color: var(--soft); }
-.index .yr { font-family: var(--mono); font-size: 12px; color: var(--soft); white-space: nowrap; }
-.index .cd { font-family: var(--mono); font-size: 12px; text-align: right; }
-.index a:hover { padding-left: 18px; color: var(--sun); }
-.peek { position: fixed; z-index: 60; left: 0; top: 0; width: 360px; aspect-ratio: 3 / 2; pointer-events: none; background: var(--plate) center / cover no-repeat; box-shadow: 0 30px 60px -30px rgb(0 0 0 / .5); opacity: 0; transform: translate(-50%, -50%) scale(.85) rotate(-3deg); transition: opacity .25s, transform .35s cubic-bezier(.2,.7,.2,1); }
-.peek.on { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(-2deg); }
 
 /* ---------- Horizontal timeline ---------- */
 .path { position: relative; height: 320vh; }
@@ -132,10 +101,7 @@ h2 em { font-style: italic; font-weight: 300; }
 .panel { flex: 0 0 calc(100% / 3); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: clamp(28px, 5vw, 80px); align-items: center; padding-inline: var(--gut) var(--gut-r); }
 .panel .big { font-family: var(--serif); font-weight: 300; font-style: italic; font-size: clamp(64px, 9vw, 140px); line-height: .85; letter-spacing: -.04em; color: var(--sun); }
 .panel h3 { font-family: var(--serif); font-weight: 600; font-size: clamp(30px, 3.2vw, 46px); line-height: 1; letter-spacing: -.02em; margin: 18px 0 10px; text-wrap: balance; }
-.panel .meta { margin: 0 0 14px; color: var(--soft); }
 .panel p { margin: 0 0 16px; max-width: 44ch; }
-.tags { display: flex; flex-wrap: wrap; gap: 6px 14px; list-style: none; padding: 0; margin: 0; font-family: var(--mono); font-size: 12px; color: var(--soft); }
-.tags li::after { content: " /"; }
 .pin-foot { display: flex; align-items: center; gap: 18px; }
 .progress { flex: 1; height: 1px; background: var(--rule); position: relative; }
 .progress i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--ink); height: 1px; }
@@ -230,9 +196,9 @@ h2 em { font-style: italic; font-weight: 300; }
 footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-block: 22px 28px; border-top: 1px solid var(--ink); }
 
 /* Small labels in the serif instead of a monospace */
-.mono, .lbl, .index .n, .index .yr, .index .cd, .tags, .rows li span, .roles li span:last-child, .el .nm span, .scroll, .contact a.go {
+.mono, .lbl, .rows li span, .roles li span:last-child, .el .nm span, .contact a.go {
   font-style: italic; letter-spacing: .005em; text-transform: none; font-size: 14px; }
-.lbl b, .index .n { font-style: normal; font-weight: 600; }
+.lbl b { font-style: normal; font-weight: 600; }
 .rows li::before { font-family: var(--serif); font-size: 13px; font-style: italic; letter-spacing: 0; }
 .plate .t, .tall .t { letter-spacing: 0; font-weight: 600; }
 .plate .tg { font-style: italic; font-weight: 400; }
@@ -243,20 +209,13 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 @keyframes unveil { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
 @keyframes settle { from { transform: scale(1.12); } }
 @keyframes draw { to { stroke-dashoffset: 0; } }
-@keyframes drip { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.3); } }
-@keyframes slide { to { transform: translateX(-50%); } }
 
 @media (max-width: 960px) {
   .hero, .lab-top, .certs { grid-template-columns: minmax(0, 1fr); }
   .hero { padding-top: 96px; }
   .intro { grid-template-columns: minmax(0, 1fr); }
   .intro p, .roles { grid-column: 1; }
-  .vcap { position: static; writing-mode: horizontal-tb; transform: none; display: block; margin-top: 10px; }
-  .corner { display: none; }
   .tall { max-height: none; }
-  .index a { grid-template-columns: 44px minmax(0, 1fr) auto; }
-  .index .cd { display: none; }
-  .peek { display: none; }
   .path { height: auto; }
   .pin { position: static; height: auto; overflow: visible; padding-block: 80px; gap: 24px; }
   .track { width: 100%; flex-direction: column; gap: 64px; transform: none !important; }
@@ -283,7 +242,7 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 <div class="bar">
   <a class="brand" href="#top"><span class="glyph" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b>EML</b></a>
   <nav>
-    <a href="#index" data-t="nIndex"></a>
+    <a href="#path" data-t="nWork"></a>
     <a href="#lab">El3mentslab</a>
     <a href="#contact" data-t="nContact"></a>
     <button type="button" id="lang" data-t="nLang"></button>
@@ -318,33 +277,9 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
         <img src="/plates/img/about-tall.jpg" alt="">
         <span class="t no">Nº 001</span>
       </div>
-      <span class="vcap" data-t="me"></span>
     </div>
-    <div class="corner bl">
-      <span class="mono">automation /<br>ai /<br>systems /<br>mobility /</span>
-      <span class="swatch"><i style="background:#1f2a44"></i><i style="background:#d9622b"></i><i style="background:#ece6da"></i><i style="background:#161513"></i></span>
-    </div>
-    <div class="corner br"><a class="scroll" href="#index" data-t="scroll"></a></div>
-    <div class="corner tr mono"><span>40.4168° N &nbsp;3.7038° W</span><span id="clock">Madrid</span></div>
   </header>
 </div>
-
-<!-- ===== Marquee ===== -->
-<div class="marquee" aria-hidden="true">
-  <div class="run" id="run"></div>
-</div>
-
-<!-- ===== Index ===== -->
-<section class="block" id="index">
-  <div class="wrap">
-    <div class="head">
-      <div><span class="lbl"><b>Index</b> · 001 — 008</span><h2 data-t="idxH"></h2></div>
-      <span class="mono" style="color:var(--soft)" data-t="idxHint"></span>
-    </div>
-    <ol class="index" id="idx"></ol>
-  </div>
-</section>
-<div class="peek" id="peek"></div>
 
 <!-- ===== Timeline (horizontal) ===== -->
 <section class="path" id="path">
@@ -371,10 +306,10 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
       <div class="plate" data-plate="el3mentslab"></div>
     </div>
     <div class="elements">
-      <div class="el"><div class="art earth"><i></i><i></i><i></i></div><div class="nm"><b data-t="eEarth"></b><span data-t="eEarthK"></span></div><p data-t="eEarthP"></p></div>
-      <div class="el"><div class="art air"><i></i><i></i><i></i><i></i></div><div class="nm"><b data-t="eAir"></b><span data-t="eAirK"></span></div><p data-t="eAirP"></p></div>
-      <div class="el"><div class="art fire"><i></i><i></i><i></i></div><div class="nm"><b data-t="eFire"></b><span data-t="eFireK"></span></div><p data-t="eFireP"></p></div>
-      <div class="el"><div class="art water"><i></i><i></i><i></i><i></i></div><div class="nm"><b data-t="eWater"></b><span data-t="eWaterK"></span></div><p data-t="eWaterP"></p></div>
+      <div class="el"><div class="art earth"><i></i><i></i><i></i></div><div class="nm"><b data-t="eEarth"></b><span data-t="eEarthK"></span></div></div>
+      <div class="el"><div class="art air"><i></i><i></i><i></i><i></i></div><div class="nm"><b data-t="eAir"></b><span data-t="eAirK"></span></div></div>
+      <div class="el"><div class="art fire"><i></i><i></i><i></i></div><div class="nm"><b data-t="eFire"></b><span data-t="eFireK"></span></div></div>
+      <div class="el"><div class="art water"><i></i><i></i><i></i><i></i></div><div class="nm"><b data-t="eWater"></b><span data-t="eWaterK"></span></div></div>
     </div>
     <p class="blend" data-t="blend"></p>
   </div>
@@ -433,29 +368,21 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
 
 <script>
 const T = {
-  nIndex: { en: "Index", es: "Índice" },
+  nWork: { en: "Work", es: "Experiencia" },
   nContact: { en: "Contact", es: "Contacto" },
   nLang: { en: "ES", es: "EN" },
   hKick: { en: "AI · systems · mobility", es: "IA · sistemas · movilidad" },
   h1a: { en: "I'm", es: "Soy" },
   h1b: { en: "Erick<em>.</em>", es: "Erick<em>.</em>" },
-  intro: { en: "Automation engineer by training, AI engineer by trade. I design the systems that let models run at scale, and teach machines to read the Earth.", es: "Ingeniero en automática de formación, ingeniero de IA de oficio. Diseño los sistemas que permiten que los modelos funcionen a gran escala, y enseño a las máquinas a leer la Tierra." },
+  intro: { en: "Automation engineer by training, AI engineer by trade.", es: "Ingeniero en automática de formación, ingeniero de IA de oficio." },
   rCol: { en: "Co-founder · CTO", es: "Cofundador · CTO" },
-  me: { en: "— Yup, that's me", es: "— Sí, ese soy yo" },
-  scroll: { en: "Scroll down", es: "Baja" },
-  idxH: { en: "Eight <em>plates</em>", es: "Ocho <em>láminas</em>" },
-  idxHint: { en: "hover to preview", es: "pasa el ratón para verla" },
   pathK: { en: "experience", es: "experiencia" },
   pathH: { en: "What I <em>do</em>", es: "Lo que <em>hago</em>" },
-  labP: { en: "My lab for web, automation and AI. Every project is built from four elements, and everything else is a blend of them.", es: "Mi laboratorio de web, automatización e IA. Cada proyecto se construye con cuatro elementos, y todo lo demás es una mezcla de ellos." },
+  labP: { en: "My lab for web, automation and AI.", es: "Mi laboratorio de web, automatización e IA." },
   eEarth: { en: "Earth", es: "Tierra" }, eEarthK: { en: "Web", es: "Web" },
-  eEarthP: { en: "Websites and applications: the ground everything stands on.", es: "Webs y aplicaciones: el suelo sobre el que se apoya todo." },
   eAir: { en: "Air", es: "Aire" }, eAirK: { en: "Automation", es: "Automatización" },
-  eAirP: { en: "Business tools connected so data moves on its own.", es: "Herramientas del negocio conectadas para que los datos se muevan solos." },
   eFire: { en: "Fire", es: "Fuego" }, eFireK: { en: "AI", es: "IA" },
-  eFireP: { en: "AI that reads documents, drafts and decides faster.", es: "IA que lee documentos, redacta y ayuda a decidir más rápido." },
   eWater: { en: "Water", es: "Agua" }, eWaterK: { en: "Method", es: "Método" },
-  eWaterP: { en: "Method and support, so it keeps working after launch.", es: "Método y soporte, para que siga funcionando después del lanzamiento." },
   blend: { en: "Four elements. Everything else is a blend.", es: "Cuatro elementos. Todo lo demás es mezcla." },
   certH: { en: "Still <em>learning</em>", es: "Siempre <em>aprendiendo</em>" },
   langH: { en: "Four <em>languages</em>", es: "Cuatro <em>idiomas</em>" },
@@ -464,7 +391,7 @@ const T = {
   l3: { en: "French", es: "Francés" },
   l4: { en: "Japanese", es: "Japonés" },
   talk: { en: "Let's <em>talk.</em>", es: "Hable<em>mos.</em>" },
-  cP: { en: "I'm drawn to projects where machine learning, systems, mobility and AI come together to solve real-world problems.", es: "Me interesan los proyectos donde el machine learning, los sistemas, la movilidad y la IA se unen para resolver problemas del mundo real." },
+  cP: { en: "Open to projects where AI, systems and mobility meet real problems.", es: "Abierto a proyectos donde la IA, los sistemas y la movilidad resuelven problemas reales." },
 };
 
 const PLATES = {
@@ -478,36 +405,17 @@ const PLATES = {
   contact:        { n: "008", code: "HI",  yr: "A.08",    tags: ["ai", "geospatial", "mobility"],            pal: ["#1d1b18", "#d9622b", "#8fb4d8", "#ece6da"] },
 };
 
-const INDEX = [
-  ["about", "#top", { en: "Who I am", es: "Quién soy" }, { en: "automation → AI", es: "automática → IA" }],
-  ["education", "#path", { en: "Universidad Politécnica <em>de Madrid</em>", es: "Universidad Politécnica <em>de Madrid</em>" }, { en: "BEng", es: "Grado" }],
-  ["columbus", "#path", { en: "Columbus Earth", es: "Columbus Earth" }, { en: "Co-founder · CTO", es: "Cofundador · CTO" }],
-  ["caf", "#path", { en: "CAF <em>· ERTMS &amp; RBC</em>", es: "CAF <em>· ERTMS y RBC</em>" }, { en: "R&amp;D testing", es: "Pruebas I+D" }],
-  ["el3mentslab", "#lab", { en: "El3mentslab", es: "El3mentslab" }, { en: "Founder", es: "Fundador" }],
-  ["certifications", "#certifications", { en: "Certifications", es: "Certificaciones" }, "×10"],
-  ["languages", "#languages", { en: "Languages", es: "Idiomas" }, "es · en · fr · ja"],
-  ["contact", "#contact", { en: "Let's talk", es: "Hablemos" }, "LinkedIn"],
-];
-
 const PATH = [
   { id: "education", big: "UPM", kicker: { en: "Education", es: "Formación" },
     title: { en: "Universidad Politécnica de Madrid", es: "Universidad Politécnica de Madrid" },
-    meta: { en: "BEng Industrial Electronics and Automation Engineering", es: "Grado en Ingeniería Electrónica Industrial y Automática" },
-    body: { en: "Where the automation side comes from: control systems, electronics and programming.", es: "De aquí viene la parte de automática: sistemas de control, electrónica y programación." },
-    tags: ["Control", "Electronics", "Programming"] },
+    body: { en: "BEng in Industrial Electronics and Automation Engineering.", es: "Grado en Ingeniería Electrónica Industrial y Automática." }, },
   { id: "columbus", big: "GEO", kicker: { en: "Columbus Earth", es: "Columbus Earth" },
     title: { en: "Co-Founder &amp; CTO", es: "Cofundador y CTO" },
-    meta: { en: "Geospatial AI · Madrid", es: "IA geoespacial · Madrid" },
-    body: { en: "Geospatial AI: systems that turn geospatial data into decision-making tools. RAG and model deployment on Microsoft Azure AI, and end-to-end data pipelines.", es: "IA geoespacial: sistemas que convierten datos geoespaciales en herramientas para decidir. RAG y despliegue de modelos en Microsoft Azure AI, y canalizaciones de datos de punta a punta." },
-    tags: ["Geospatial AI", "RAG", "MLOps", "Azure AI"] },
+    body: { en: "Geospatial AI that turns map data into decisions.", es: "IA geoespacial que convierte datos de mapas en decisiones." }, },
   { id: "caf", big: "RBC", kicker: { en: "CAF", es: "CAF" },
     title: { en: "R&amp;D Testing Engineer, ERTMS &amp; RBC", es: "R&amp;D Testing Engineer, ERTMS y RBC" },
-    meta: { en: "Construcciones y Auxiliar de Ferrocarriles · Madrid", es: "Construcciones y Auxiliar de Ferrocarriles · Madrid" },
-    body: { en: "Testing and validation in R&amp;D for ERTMS, the European Rail Traffic Management System, and its Radio Block Centre.", es: "Pruebas y validación en I+D para ERTMS, el sistema europeo de gestión del tráfico ferroviario, y su Radio Block Centre." },
-    tags: ["ERTMS", "RBC", "Rail"] },
+    body: { en: "Testing and validation of Europe's rail traffic management system.", es: "Pruebas y validación del sistema europeo de gestión del tráfico ferroviario." }, },
 ];
-
-const MARQUEE = { en: ["Automation", "Machine learning", "Rail signalling", "Geospatial AI", "RAG", "Web", "Madrid"], es: ["Automática", "Machine learning", "Señalización ferroviaria", "IA geoespacial", "RAG", "Web", "Madrid"] };
 
 let lang = "en";
 try { if (localStorage.getItem("lang") === "es") lang = "es"; } catch {}
@@ -527,41 +435,17 @@ function render() {
   document.querySelectorAll("[data-t]").forEach((el) => (el.innerHTML = tx(T[el.dataset.t])));
   document.querySelectorAll("[data-plate]").forEach((el) => (el.innerHTML = plate(el.dataset.plate)));
 
-  const shapes = ["s1", "s2", "s3", "s4"];
-  const words = MARQUEE[lang].map((w, i) => `${w}<i class="shape ${shapes[i % 4]}"></i>`).join("");
-  document.getElementById("run").innerHTML = `<span>${words}</span><span>${words}</span>`;
-
-  document.getElementById("idx").innerHTML = INDEX.map(([id, href, title, yr]) => `
-    <li><a href="${href}" data-peek="${id}">
-      <span class="n">Nº ${PLATES[id].n}</span><span class="ti">${tx(title)}</span><span class="yr">${tx(yr)}</span><span class="cd">(${PLATES[id].code})</span>
-    </a></li>`).join("");
-
   document.getElementById("track").innerHTML = PATH.map((c) => `
     <article class="panel">
       <div>
         <div class="big">${c.big}</div>
         <span class="lbl"><b>Nº ${PLATES[c.id].n}</b> · ${tx(c.kicker)}</span>
         <h3>${tx(c.title)}</h3>
-        <p class="mono meta">${tx(c.meta)}</p>
         <p>${tx(c.body)}</p>
-        <ul class="tags">${c.tags.map((t) => `<li>${t}</li>`).join("")}</ul>
       </div>
       <div class="plate">${plate(c.id)}</div>
     </article>`).join("");
 }
-
-/* Hover preview that follows the cursor over the index */
-const peek = document.getElementById("peek");
-let px = 0, py = 0, tx2 = 0, ty2 = 0;
-document.getElementById("idx").addEventListener("mousemove", (e) => {
-  const a = e.target.closest("[data-peek]");
-  if (!a) return;
-  const id = a.dataset.peek;
-  peek.style.backgroundImage = `url(/plates/img/${PLATES[id].img || id}.jpg)`;
-  peek.classList.add("on");
-  tx2 = e.clientX + 200; ty2 = e.clientY;
-});
-document.getElementById("idx").addEventListener("mouseleave", () => peek.classList.remove("on"));
 
 /* Scroll-driven bits: horizontal path, sunrise, hero parallax */
 const path = document.getElementById("path");
@@ -587,24 +471,11 @@ function onScroll() {
 addEventListener("scroll", onScroll, { passive: true });
 addEventListener("resize", onScroll);
 
-function loop() {
-  px += (tx2 - px) * 0.18; py += (ty2 - py) * 0.18;
-  peek.style.left = px + "px"; peek.style.top = py + "px";
-  requestAnimationFrame(loop);
-}
-loop();
-
 document.querySelector(".hero").addEventListener("mousemove", (e) => {
   if (calm.matches) return;
   const x = e.clientX / innerWidth - 0.5, y = e.clientY / innerHeight - 0.5;
   tall.style.transform = `translate(${x * -14}px, ${y * -14}px) rotate(${x * -1.2}deg)`;
 });
-
-function tick() {
-  const t = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Madrid", hour: "2-digit", minute: "2-digit" }).format(new Date());
-  document.getElementById("clock").textContent = `Madrid · ${t}`;
-}
-tick(); setInterval(tick, 30000);
 
 document.getElementById("lang").onclick = () => {
   lang = lang === "en" ? "es" : "en";
