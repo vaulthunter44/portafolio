@@ -1,4 +1,4 @@
-// Shared by the scene scripts: one call to Nano Banana (Gemini's image model)
+// Used to paint the portfolio plates: one call to Nano Banana (Gemini's image model)
 // with your own Google project's key, and the background cut-out.
 //
 // The key is read from GEMINI_API_KEY (or GOOGLE_API_KEY), in .env.local or the
